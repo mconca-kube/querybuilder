@@ -12,10 +12,10 @@ namespace SqlKata.Compilers
             OpeningIdentifier = "\"";
             ClosingIdentifier = "\"";
             LastId = "select last_insert_rowid() as id";
+            SupportsFilterClause { get; set; } = true;
         }
 
         public override string EngineCode { get; } = EngineCodes.Sqlite;
-        public override bool SupportsFilterClause { get; set; } = true;
         // MC 2020.09.04 Moved initializations to the constructor, it's more readable and LastId can be protected write
         // It is also easier to derive from this class and to change these parameters
 
