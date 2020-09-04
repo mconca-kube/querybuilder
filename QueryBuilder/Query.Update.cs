@@ -11,7 +11,8 @@ namespace SqlKata
 
         public Query AsUpdate(object data)
         {
-            var dictionary = BuildDictionaryFromObject(data, considerKeys: true);
+            // MC 2020.09.04 Added query type
+            var dictionary = BuildDictionaryFromObject(data, considerKeys: true, queryType: QueryType.Update);
 
             return AsUpdate(dictionary);
         }

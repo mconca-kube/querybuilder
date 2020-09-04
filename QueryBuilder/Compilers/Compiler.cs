@@ -14,7 +14,7 @@ namespace SqlKata.Compilers
         protected virtual string ClosingIdentifier { get; set; } = "\"";
         protected virtual string ColumnAsKeyword { get; set; } = "AS ";
         protected virtual string TableAsKeyword { get; set; } = "AS ";
-        protected virtual string LastId { get; set; } = "";
+        public virtual string LastId { get; protected set; } = "";  // MC 2020.09.04 Made write-protected. Cannot set it from outside
         protected virtual string EscapeCharacter { get; set; } = "\\";
 
         protected Compiler()

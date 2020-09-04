@@ -9,7 +9,8 @@ namespace SqlKata
     {
         public Query AsInsert(object data, bool returnId = false)
         {
-            var dictionary = BuildDictionaryFromObject(data);
+            // MC 2020.09.04 Added query type
+            var dictionary = BuildDictionaryFromObject(data, queryType: QueryType.Insert);
 
             return AsInsert(dictionary, returnId);
         }

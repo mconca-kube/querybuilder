@@ -353,15 +353,20 @@ namespace SqlKata
         /// and add it automatically to the Where clause
         /// </param>
         /// <returns></returns>
-        private Dictionary<string, object> BuildDictionaryFromObject(object data, bool considerKeys = false)
+        private Dictionary<string, object> BuildDictionaryFromObject(object data, bool considerKeys = false, QueryType? queryType = null)
         {
-
+            // MC 2020.09.04 Added QueryType to know if I need to ingnore the property for autoincrement fields
             var dictionary = new Dictionary<string, object>();
             var props = data.GetType().GetRuntimeProperties();
 
             foreach (var property in props)
             {
                 if (property.GetCustomAttribute(typeof(IgnoreAttribute)) != null)
+                {
+                    continue;
+                }
+                // MC 2020.09.04 Exclude autoincrement fields on insert
+                if (queryType == QueryType.Insert && property.GetCustomAttribute(typeof(AutoIncrementAttribute)) != null)
                 {
                     continue;
                 }

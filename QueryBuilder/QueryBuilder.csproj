@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>SqlKata</PackageId>
+    <PackageId>SqlKataKube</PackageId>
     <PackageTags>sql;query-builder;dynamic-query</PackageTags>
     <Title>SqlKata The C# Sql Query Builder</Title>
     <Description>A powerful Dynamic Sql Query Builder supporting Sql Server, MySql, PostgreSql, Oracle and Firebird</Description>
@@ -10,5 +10,11 @@
     <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
     <RootNamespace>SqlKata</RootNamespace>
     <AssemblyName>SqlKata</AssemblyName>
+    <Product>SqlKataKube</Product>
+    <RepositoryUrl>https://github.com/mconca-kube/querybuilder</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/mconca-kube/querybuilder
+Fork of:
+https://github.com/sqlkata/querybuilder</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/mconca-kube/querybuilder</PackageProjectUrl>
   </PropertyGroup>
 </Project>

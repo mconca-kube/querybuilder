@@ -6,12 +6,19 @@ namespace SqlKata.Compilers
 {
     public class SqliteCompiler : Compiler
     {
+        public SqliteCompiler()
+        {
+            // MC 2020.09.04 Added constructor
+            parameterPlaceholder = "?";
+            parameterPrefix = "@p";
+            OpeningIdentifier = "\"";
+            ClosingIdentifier = "\"";
+            LastId = "select last_insert_rowid() as id";
+        }
+
         public override string EngineCode { get; } = EngineCodes.Sqlite;
-        protected override string parameterPlaceholder { get; set; } = "?";
-        protected override string parameterPrefix { get; set; } = "@p";
-        protected override string OpeningIdentifier { get; set; } = "\"";
-        protected override string ClosingIdentifier { get; set; } = "\"";
-        protected override string LastId { get; set; } = "select last_insert_rowid() as id";
+        // MC 2020.09.04 Moved initializations to the constructor, it's more readable and LastId can be protected write
+        // It is also easier to derive from this class and to change these parameters
 
         public override string CompileTrue()
         {
