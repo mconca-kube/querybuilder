@@ -16,6 +16,9 @@
     <PackageReference Include="dapper" Version="1.50.5" />
     <PackageReference Include="Humanizer.Core" Version="2.6.2" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="NuGet.Build.Tasks.Pack" Version="5.7.0" />
+  </ItemGroup>
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net451</TargetFrameworks>
   </PropertyGroup>
