@@ -9,14 +9,13 @@
     <PackageId>$(AssemblyName)</PackageId>
     <PackageReleaseNotes>https://github.com/sqlkata/querybuilder</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/sqlkata/querybuilder</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/sqlkata/querybuilder/licence</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/sqlkata/querybuilder</RepositoryUrl>
 
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <IncludeSymbols>false</IncludeSymbols>
+    <IncludeSymbols>true</IncludeSymbols>
     <VersionSuffix Condition="'$(VersionSuffix)' != '' AND '$(BuildNumber)' != ''">$(VersionSuffix)-$(BuildNumber)</VersionSuffix>
   </PropertyGroup>
 
