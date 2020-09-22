@@ -8,7 +8,7 @@
     <Authors>Ahmad Moussawi</Authors>
     <Copyright>Copyright (c) 2017 Ahmad Moussawi</Copyright>
     <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
-    <RootNamespace>SqlKataKube</RootNamespace>
+    <RootNamespace>SqlKata</RootNamespace>
     <AssemblyName>SqlKataKube</AssemblyName>
     <Product>SqlKataKube</Product>
     <RepositoryUrl>https://github.com/mconca-kube/querybuilder</RepositoryUrl>
@@ -17,9 +17,9 @@ Fork of:
 https://github.com/sqlkata/querybuilder</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/mconca-kube/querybuilder</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>2.2.101.0</AssemblyVersion>
-    <FileVersion>2.2.101.0</FileVersion>
-    <Version>2.2.101</Version>
+    <AssemblyVersion>2.2.102.0</AssemblyVersion>
+    <FileVersion>2.2.102.0</FileVersion>
+    <Version>2.2.102</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.0|AnyCPU'">
     <DebugType>portable</DebugType>
