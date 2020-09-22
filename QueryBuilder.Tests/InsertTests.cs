@@ -29,6 +29,34 @@ namespace SqlKata.Tests
             public string color { get; set; }
         }
 
+        private class Order
+        {
+            // MC 22/09/2020 Nuovo test per autoincrement
+            [Key]
+            [AutoIncrement]
+            public int OrderId { get; set; }
+            public string OrderCode { get; set; }
+            public string CustomerId { get; set; }
+        }
+
+        [Fact]
+        public void InsertWithAutoincrementAndColumnProperties()
+        {
+            var order = new Order() { OrderId = 999, OrderCode = "Order123", CustomerId = "Customer123" };
+            var query = new Query("Order").AsInsert(order);
+
+            var c = Compile(query);
+
+            Assert.Equal(
+                "INSERT INTO [Order] ([OrderCode], [CustomerId]) VALUES ('Order123', 'Customer123')",
+                c[EngineCodes.SqlServer]);
+
+            Assert.Equal(
+                "INSERT INTO \"ORDER\" (\"ORDERCODE\", \"CUSTOMERID\") VALUES ('Order123', 'Customer123')",
+                 c[EngineCodes.Firebird]);
+        }
+
+
         [Fact]
         public void InsertObject()
         {
