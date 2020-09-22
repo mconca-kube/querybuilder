@@ -24,7 +24,6 @@ namespace SqlKata
             Comment(comment);
         }
 
-
         public bool HasOffset(string engineCode = null) => GetOffset(engineCode) > 0;
 
         public bool HasLimit(string engineCode = null) => GetLimit(engineCode) > 0;
@@ -345,15 +344,16 @@ namespace SqlKata
         }
 
         /// <summary>
-        /// Build a dictionary from plain object, intended to be used with Insert and Update queries
+        /// Gather a list of key-values representing the properties of the object and their values.
         /// </summary>
-        /// <param name="data">the plain C# object</param>
+        /// <param name="data">The plain C# object</param>
         /// <param name="considerKeys">
+        /// <param name="queryType">
         /// When true it will search for properties with the [Key] attribute
-        /// and add it automatically to the Where clause
+        /// and will add it automatically to the Where clause
         /// </param>
         /// <returns></returns>
-        private Dictionary<string, object> BuildDictionaryFromObject(object data, bool considerKeys = false, QueryType? queryType = null)
+        private IEnumerable<KeyValuePair<string, object>> BuildKeyValuePairsFromObject(object data, bool considerKeys = false, QueryType? queryType = null)
         {
             // MC 2020.09.04 Added QueryType to know if I need to ingnore the property for autoincrement fields
             var dictionary = new Dictionary<string, object>();
@@ -386,11 +386,9 @@ namespace SqlKata
                         this.Where(name, value);
                     }
                 }
-
             }
 
             return dictionary;
         }
-
     }
 }

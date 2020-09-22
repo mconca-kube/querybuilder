@@ -50,13 +50,13 @@ namespace SqlKata.Compilers
             var value = Parameter(ctx, condition.Value);
 
             var formatMap = new Dictionary<string, string> {
-                {"date", "%Y-%m-%d"},
-                {"time", "%H:%M:%S"},
-                {"year", "%Y"},
-                {"month", "%m"},
-                {"day", "%d"},
-                {"hour", "%H"},
-                {"minute", "%M"},
+                { "date", "%Y-%m-%d" },
+                { "time", "%H:%M:%S" },
+                { "year", "%Y" },
+                { "month", "%m" },
+                { "day", "%d" },
+                { "hour", "%H" },
+                { "minute", "%M" },
             };
 
             if (!formatMap.ContainsKey(condition.Part))
@@ -73,6 +73,5 @@ namespace SqlKata.Compilers
 
             return sql;
         }
-
     }
 }

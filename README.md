@@ -10,6 +10,8 @@
 
 ![Quick Demo](https://i.imgur.com/jOWD4vk.gif)
 
+> **We are not accepting new compilers, if you want to add your own compiler, we recommend to create a separate repo starting like SqlKata-Oracle** 
+
 
 SqlKata Query Builder is a powerful Sql Query Builder written in C#.
 
@@ -20,6 +22,8 @@ SqlKata has an expressive API. it follows a clean naming convention, which is ve
 By providing a level of abstraction over the supported database engines, that allows you to work with multiple databases with the same unified API.
 
 SqlKata supports complex queries, such as nested conditions, selection from SubQuery, filtering over SubQueries, Conditional Statements and others. Currently it has built-in compilers for SqlServer, MySql, PostgreSql and Firebird.
+
+The SqlKata.Execution package provides the ability to submit the queries to the database, using [Dapper](https://github.com/StackExchange/Dapper) under the covers.
 
 Checkout the full documentation on [https://sqlkata.com](https://sqlkata.com)
 
@@ -46,6 +50,8 @@ var compiler = new SqlCompiler();
 
 var db = new QueryFactory(connection, compiler)
 ```
+
+> `QueryFactory` is provided by the SqlKata.Execution package.
 
 ### Retrieve all records
 ```cs
