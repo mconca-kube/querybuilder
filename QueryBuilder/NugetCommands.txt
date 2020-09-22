@@ -1,0 +1,43 @@
+﻿1) Incrementare il numero di versione nelle proprietà del progetto
+2) Aprire il CMD nella cartella del progetto (ALT+Spazio)
+3) Eseguire UploadBaGet.bat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DESCRIZIONE COMPLETA
+1) Incrementare il numero di versione nelle proprietà del progetto
+2) Eseguire questo comando per eliminare le vecchie versioni (dalla cartella della solution)
+3) Compilare il progetto
+4) Impostare la chiave API da utilizzare per l'upload
+5) Eseguire questo comando per caricare il pacchetto creato al punto 2 sul server nuget (con TAB finale per autocompletamento nome). Selezionare file con estensione .nupkg
+
+
+// PER UPLOAD SU SERVER PRIVATO LOCALE
+Apro il cmd (focus su file del progetto e premo alt+spazio)
+del /s KubePackages.DapperEngine.*.*nupkg
+dotnet build -c DEBUG
+dotnet pack DapperEngine.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+nuget push -Source "http://192.168.3.114:5000/v3/index.json" bin\Debug\KubePackages.DapperEngine.
+
+
