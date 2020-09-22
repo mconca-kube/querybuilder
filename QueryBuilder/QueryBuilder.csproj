@@ -8,7 +8,7 @@
     <Authors>Ahmad Moussawi</Authors>
     <Copyright>Copyright (c) 2017 Ahmad Moussawi</Copyright>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <RootNamespace>SqlKata</RootNamespace>
+    <RootNamespace>SqlKataKube</RootNamespace>
     <AssemblyName>SqlKataKube</AssemblyName>
 
     <!-- NuGet settings -->
