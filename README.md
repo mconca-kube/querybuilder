@@ -1,16 +1,25 @@
-# SqlKata Query Builder
+<p align="center">
+    <strong>SqlKata Query Builder</strong>
+</p>
 
-[![Build status](https://ci.appveyor.com/api/projects/status/bh022c0ol5u6s41p?svg=true)](https://ci.appveyor.com/project/ahmad-moussawi/querybuilder)
+<p align="center">
+    <a href="https://ci.appveyor.com/project/ahmad-moussawi/querybuilder"><img src="https://ci.appveyor.com/api/projects/status/bh022c0ol5u6s41p?svg=true"></a>
+    <a href="https://www.nuget.org/packages/SqlKata"><img src="https://img.shields.io/nuget/vpre/SqlKata.svg"></a>
+    <a href="https://www.myget.org/feed/sqlkata/package/nuget/SqlKata"><img src="https://img.shields.io/myget/sqlkata/v/SqlKata.svg?label=myget"></a>
+    <a href="https://github.com/sqlkata/querybuilder/network/members"><img src="https://img.shields.io/github/forks/sqlkata/querybuilder"></a>
+    <a href="https://github.com/sqlkata/querybuilder/stargazers"><img src="https://img.shields.io/github/stars/sqlkata/querybuilder"></a>
+    <a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fsqlkata%2Fquerybuilder"><img alt="Twitter" src="https://img.shields.io/twitter/url?label=Tweet%20about%20SqlKata&style=social&url=https%3A%2F%2Fgithub.com%2Fsqlkata%2Fquerybuilder"></a>
+</p>
 
-[![SqlKata on Nuget](https://img.shields.io/nuget/vpre/SqlKata.svg)](https://www.nuget.org/packages/SqlKata)
 
-[![SqlKata on MyGet](https://img.shields.io/myget/sqlkata/v/SqlKata.svg?label=myget)](https://www.myget.org/feed/sqlkata/package/nuget/SqlKata)
 
-<a href="https://twitter.com/ahmadmuzavi?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @ahmadmuzavi</a> for the latest updates about SqlKata.
+> **WE ARE NOT ACCEPTING NEW COMPILERS, if you want to add your own compiler, we recommend to create a separate repo like SqlKata-Oracle** 
+
+Follow <a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fsqlkata%2Fquerybuilder"><img alt="Twitter" src="https://img.shields.io/twitter/url?label=%40ahmadmuzavi&style=social&url=https%3A%2F%2Ftwitter.com%2Fahmadmuzavi"></a> for the latest updates about SqlKata.
+
 
 ![Quick Demo](https://i.imgur.com/jOWD4vk.gif)
 
-> **We are not accepting new compilers, if you want to add your own compiler, we recommend to create a separate repo starting like SqlKata-Oracle** 
 
 
 SqlKata Query Builder is a powerful Sql Query Builder written in C#.

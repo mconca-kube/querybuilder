@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -312,6 +313,8 @@ namespace SqlKata
         {
             return Include(relationName, query, foreignKey, localKey, isMany: true);
         }
+        
+        private static readonly ConcurrentDictionary<Type, PropertyInfo[]> CacheDictionaryProperties = new ConcurrentDictionary<Type, PropertyInfo[]>();
 
         /// <summary>
         /// Define a variable to be used within the query
@@ -357,7 +360,7 @@ namespace SqlKata
         {
             // MC 2020.09.04 Added QueryType to know if I need to ingnore the property for autoincrement fields
             var dictionary = new Dictionary<string, object>();
-            var props = data.GetType().GetRuntimeProperties();
+            var props = CacheDictionaryProperties.GetOrAdd(data.GetType(), type => type.GetRuntimeProperties().ToArray());
 
             foreach (var property in props)
             {
