@@ -17,9 +17,9 @@ Fork of:
 https://github.com/sqlkata/querybuilder</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/mconca-kube/querybuilder</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>2.2.102.0</AssemblyVersion>
-    <FileVersion>2.2.102.0</FileVersion>
-    <Version>2.2.102</Version>
+    <AssemblyVersion>2.2.103.0</AssemblyVersion>
+    <FileVersion>2.2.103.0</FileVersion>
+    <Version>2.2.103</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.0|AnyCPU'">
     <DebugType>portable</DebugType>
