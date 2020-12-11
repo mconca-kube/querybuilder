@@ -1,15 +1,23 @@
 ﻿// COME SCARICARE GLI AGGIORNAMENTI DAL REPOSITORY UFFICIALE SQLKATA
 
 1)
-Team Explorer, Sync, cliccare su Branch: master e selezionare remote, upstream, master per posizionarsi sul repository ufficiale
+Team Explorer, Sync, cliccare su "Branch: master"
 
-2) Cliccare su fetch (non succede niente)
+2)
+Click destro su remotes, upstream, master (repository ufficiale su github)
 
-3) Andare su Branches, Merge
+3)
+Selezionare fetch (sembra non succedere niente)
+
+4) 
+Andare su Branches, Merge
 Selezionare in "Merge from branch": upstream/master
 
-4) togliere la spunta da Commit changes per poter controllare cosa succede
+5)
+Togliere la spunta da Commit changes per poter controllare cosa succede
 
-5) premere il bottone Merge
+6)
+Premere il bottone Merge
 
-6) risolvere eventuali conflitti
+7)
+Risolvere eventuali conflitti
