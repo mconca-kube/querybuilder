@@ -11,7 +11,7 @@
     <AssemblyName>SqlKataKube</AssemblyName>
 
     <!-- NuGet settings -->
-    <PackageId>SqlKataKube2</PackageId>
+    <PackageId>SqlKataKube</PackageId>
     <PackageTags>sql;query-builder;dynamic-query</PackageTags>
     <PackageReleaseNotes>https://github.com/mconca-kube/querybuilder</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/mconca-kube/querybuilder</PackageProjectUrl>
@@ -23,7 +23,9 @@
     <!-- SourceLink settings -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <Version>2.2.104</Version>
+    <Version>2.2.106</Version>
+    <AssemblyVersion>2.2.106.0</AssemblyVersion>
+    <FileVersion>2.2.106.0</FileVersion>
 
   </PropertyGroup>
   <ItemGroup>
