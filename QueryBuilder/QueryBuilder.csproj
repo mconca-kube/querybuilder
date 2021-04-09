@@ -1,33 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageId>SqlKataKube</PackageId>
     <PackageTags>sql;query-builder;dynamic-query</PackageTags>
     <Title>SqlKata The C# Sql Query Builder</Title>
     <Description>A powerful Dynamic Sql Query Builder supporting Sql Server, MySql, PostgreSql, Oracle and Firebird</Description>
     <Authors>Ahmad Moussawi</Authors>
     <Copyright>Copyright (c) 2017 Ahmad Moussawi</Copyright>
-    <TargetFrameworks>net45;netstandard1.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <RootNamespace>SqlKata</RootNamespace>
     <AssemblyName>SqlKataKube</AssemblyName>
-    <Product>SqlKataKube</Product>
-    <RepositoryUrl>https://github.com/mconca-kube/querybuilder</RepositoryUrl>
-    <PackageReleaseNotes>https://github.com/mconca-kube/querybuilder
-Fork of:
-https://github.com/sqlkata/querybuilder</PackageReleaseNotes>
+
+    <!-- NuGet settings -->
+    <PackageId>SqlKataKube2</PackageId>
+    <PackageTags>sql;query-builder;dynamic-query</PackageTags>
+    <PackageReleaseNotes>https://github.com/mconca-kube/querybuilder</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/mconca-kube/querybuilder</PackageProjectUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>2.2.103.0</AssemblyVersion>
-    <FileVersion>2.2.103.0</FileVersion>
-    <Version>2.2.103</Version>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.0|AnyCPU'">
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
+    <PackageLicenseUrl>https://github.com/sqlkata/querybuilder/licence</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/mconca-kube/querybuilder</RepositoryUrl>
+
+    <!-- SourceLink settings -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Version>2.2.104</Version>
+
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" />
-    <PackageReference Update="NuGet.Build.Tasks.Pack" Version="5.7.0" />
-    <PackageReference Update="SourceLink.Create.CommandLine" Version="2.8.3" />
   </ItemGroup>
 </Project>

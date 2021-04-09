@@ -4,19 +4,13 @@ using SqlKata;
 using SqlKata.Compilers;
 using SqlKata.Execution;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
-using System.Linq;
 using Newtonsoft.Json;
-using Npgsql;
-using System.Data;
-using Dapper;
 using System.Data.SQLite;
-using static SqlKata.Expressions;
 using System.IO;
 
 namespace Program
 {
-    class Program
+	class Program
     {
         private class Loan
         {
@@ -32,24 +26,22 @@ namespace Program
             public int DaysCount { get; set; }
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
-            using (var db = SqlLiteQueryFactory())
-            {
-                var query = db.Query("accounts")
-                    .Where("balance", ">", 0)
-                    .GroupBy("balance")
-                .Limit(10);
+			using var db = SqlLiteQueryFactory();
+			var query = db.Query("accounts")
+				.Where("balance", ">", 0)
+				.GroupBy("balance")
+			.Limit(10);
 
-                var accounts = query.Clone().Get();
-                Console.WriteLine(JsonConvert.SerializeObject(accounts, Formatting.Indented));
+			var accounts = query.Clone().Get();
+			Console.WriteLine(JsonConvert.SerializeObject(accounts, Formatting.Indented));
 
-                var exists = query.Clone().Exists();
-                Console.WriteLine(exists);
-            }
-        }
+			var exists = query.Clone().Exists();
+			Console.WriteLine(exists);
+		}
 
-        private static void log(Compiler compiler, Query query)
+        private static void Log(Compiler compiler, Query query)
         {
             var compiled = compiler.Compile(query);
             Console.WriteLine(compiled.ToString());
@@ -62,14 +54,15 @@ namespace Program
 
             var connection = new SQLiteConnection("Data Source=Demo.db");
 
-            var db = new QueryFactory(connection, compiler);
+			var db = new QueryFactory(connection, compiler)
+			{
+				Logger = result =>
+				{
+					Console.WriteLine(result.ToString());
+				}
+			};
 
-            db.Logger = result =>
-            {
-                Console.WriteLine(result.ToString());
-            };
-
-            if (!File.Exists("Demo.db"))
+			if (!File.Exists("Demo.db"))
             {
                 Console.WriteLine("db not exists creating db");
 
@@ -100,14 +93,15 @@ namespace Program
                "Server=tcp:localhost,1433;Initial Catalog=Lite;User ID=sa;Password=P@ssw0rd"
            );
 
-            var db = new QueryFactory(connection, compiler);
+			var db = new QueryFactory(connection, compiler)
+			{
+				Logger = result =>
+				{
+					Console.WriteLine(result.ToString());
+				}
+			};
 
-            db.Logger = result =>
-            {
-                Console.WriteLine(result.ToString());
-            };
-
-            return db;
+			return db;
         }
 
     }
