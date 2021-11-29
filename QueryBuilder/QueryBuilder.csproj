@@ -16,16 +16,16 @@
     <PackageReleaseNotes>https://github.com/mconca-kube/querybuilder</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/mconca-kube/querybuilder</PackageProjectUrl>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/mconca-kube/querybuilder</RepositoryUrl>
 
     <!-- SourceLink settings -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <Version>2.2.107</Version>
-    <AssemblyVersion>2.3.107.0</AssemblyVersion>
-    <FileVersion>2.3.107.0</FileVersion>
+    <Version>2.2.123.2</Version>
+    <AssemblyVersion>2.3.0.123</AssemblyVersion>
+    <FileVersion>2.3.0.123</FileVersion>
 
   </PropertyGroup>
   <ItemGroup>
