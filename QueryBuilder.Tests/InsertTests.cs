@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Dynamic;
@@ -65,7 +65,7 @@ namespace SqlKata.Tests
                     new
                     {
                         Name = "The User",
-                        Age = new DateTime(2018, 1, 1),
+                        Age = new DateTime(2018, 1, 1, 0, 0, 0, DateTimeKind.Utc),
                     });
 
             var c = Compile(query);
@@ -214,7 +214,7 @@ namespace SqlKata.Tests
                     new
                     {
                         Name = "The User",
-                        Age = new DateTime(2018, 1, 1),
+                        Age = new DateTime(2018, 1, 1, 0, 0, 0, DateTimeKind.Utc),
                     });
 
             var c = Compile(query);
@@ -233,7 +233,7 @@ namespace SqlKata.Tests
                     new
                     {
                         Name = "The User",
-                        Age = new DateTime(2018, 1, 1),
+                        Age = new DateTime(2018, 1, 1, 0, 0, 0, DateTimeKind.Utc),
                     });
 
             Assert.Throws<InvalidOperationException>(() =>
@@ -248,7 +248,7 @@ namespace SqlKata.Tests
             var dictionaryUser = new Dictionary<string, object>
                 {
                     { "Name", "The User" },
-                    { "Age",  new DateTime(2018, 1, 1) },
+                    { "Age",  new DateTime(2018, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
                 }
                 .ToArray();
 
@@ -271,7 +271,7 @@ namespace SqlKata.Tests
         {
             var dictionaryUser = new Dictionary<string, object> {
                 { "Name", "The User" },
-                { "Age",  new DateTime(2018, 1, 1) },
+                { "Age",  new DateTime(2018, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
             };
 
             var query = new Query("Table")
@@ -295,7 +295,7 @@ namespace SqlKata.Tests
                 new Dictionary<string, object>
                 {
                     { "Name", "The User" },
-                    { "Age",  new DateTime(2018, 1, 1) },
+                    { "Age",  new DateTime(2018, 1, 1, 0, 0, 0, DateTimeKind.Utc) },
                 });
 
             var query = new Query("Table")
@@ -317,7 +317,7 @@ namespace SqlKata.Tests
         {
             dynamic expandoUser = new ExpandoObject();
             expandoUser.Name = "The User";
-            expandoUser.Age = new DateTime(2018, 1, 1);
+            expandoUser.Age = new DateTime(2018, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
             var query = new Query("Table")
                 .AsInsert(expandoUser);

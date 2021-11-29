@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageTags>sql;query-builder;dynamic-query</PackageTags>
@@ -15,7 +15,7 @@
     <PackageTags>sql;query-builder;dynamic-query</PackageTags>
     <PackageReleaseNotes>https://github.com/mconca-kube/querybuilder</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/mconca-kube/querybuilder</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/sqlkata/querybuilder/licence</PackageLicenseUrl>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/mconca-kube/querybuilder</RepositoryUrl>
