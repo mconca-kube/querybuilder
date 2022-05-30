@@ -23,7 +23,7 @@
     <!-- SourceLink settings -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <Version>2.2.237.1</Version>
+    <Version>2.2.237.2</Version>
     <AssemblyVersion>2.3.0.123</AssemblyVersion>
     <FileVersion>2.3.0.123</FileVersion>
 

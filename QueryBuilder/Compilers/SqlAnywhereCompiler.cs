@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace SqlKata.Compilers
 {
-    public class SqlAnywhereCompiler : Compiler
+    public class SqlAnywhereCompiler : Compiler, IKubeCompiler
     {
         // MC 2020.09.04 New Compiler
         private string _trueValue, _falseValue;
@@ -179,5 +179,9 @@ namespace SqlKata.Compilers
             return sql;
         }
 
+        public virtual string GetFieldAsAlias(string field, string alias)
+        {
+            return string.Concat(field, " as '", alias, "'");
+        }
     }
 }
