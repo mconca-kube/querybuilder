@@ -22,6 +22,24 @@ namespace SqlKata.Compilers
             _compileConditionMethodsProvider = new ConditionsCompilerProvider(this);
         }
 
+        // MC 2022/11/29 Aggiunta per poter lanciare query free
+        public string GetParameterPrefix()
+        {
+            return parameterPrefix;
+        }
+
+        // MC 2022/11/29 Aggiunta per poter lanciare query free
+        public string GetParameterPlaceholder()
+        {
+            return parameterPlaceholder;
+        }
+
+        // MC 2022/11/29 Aggiunta per poter lanciare query free
+        public Dictionary<string, object> GetNamedBindings(object[] bindings)
+        {
+            return generateNamedBindings(bindings);
+        }
+
         public virtual string EngineCode { get; }
 
         protected virtual string SingleRowDummyTableName { get => null; }
