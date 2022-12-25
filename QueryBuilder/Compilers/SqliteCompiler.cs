@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using SqlKata;
-using SqlKata.Compilers;
 
 namespace SqlKata.Compilers
 {
@@ -17,6 +15,7 @@ namespace SqlKata.Compilers
         }
 
         public override string EngineCode { get; } = EngineCodes.Sqlite;
+        public override bool SupportsFilterClause { get; set; } = true;
         // MC 2020.09.04 Moved initializations to the constructor, it's more readable and LastId can be protected write
         // It is also easier to derive from this class and to change these parameters
 
@@ -38,7 +37,7 @@ namespace SqlKata.Compilers
             if (limit == 0 && offset > 0)
             {
                 ctx.Bindings.Add(offset);
-                return "LIMIT -1 OFFSET ?";
+                return $"LIMIT -1 OFFSET {parameterPlaceholder}";
             }
 
             return base.CompileLimit(ctx);

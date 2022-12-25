@@ -814,5 +814,122 @@ namespace SqlKata.Tests
                     .HavingContains("Column1", @"TestString\%", false, @"\aa");
             });
         }
+
+
+        [Fact]
+        public void BasicSelectRaw_WithNoTable()
+        {
+            var q = new Query().SelectRaw("somefunction() as c1");
+
+            var c = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT somefunction() as c1", c.ToString());
+        }
+
+        [Fact]
+        public void BasicSelect_WithNoTable()
+        {
+            var q = new Query().Select("c1");
+            var c = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT [c1]", c.ToString());
+        }
+
+        [Fact]
+        public void BasicSelect_WithNoTableAndWhereClause()
+        {
+            var q = new Query().Select("c1").Where("p", 1);
+            var c = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT [c1] WHERE [p] = 1", c.ToString());
+        }
+
+        [Fact]
+        public void BasicSelect_WithNoTableWhereRawClause()
+        {
+            var q = new Query().Select("c1").WhereRaw("1 = 1");
+            var c = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT [c1] WHERE 1 = 1", c.ToString());
+        }
+
+        [Fact]
+        public void BasicSelectAggregate()
+        {
+            var q = new Query("Posts").Select("Title")
+                .SelectAggregate("sum", "ViewCount");
+
+            var sqlServer = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT [Title], SUM([ViewCount]) FROM [Posts]", sqlServer.ToString());
+        }
+
+        [Fact]
+        public void SelectAggregateShouldIgnoreEmptyFilter()
+        {
+            var q = new Query("Posts").Select("Title")
+                .SelectAggregate("sum", "ViewCount", q => q);
+
+            var sqlServer = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT [Title], SUM([ViewCount]) FROM [Posts]", sqlServer.ToString());
+        }
+
+        [Fact]
+        public void SelectAggregateShouldIgnoreEmptyQueryFilter()
+        {
+            var q = new Query("Posts").Select("Title")
+                .SelectAggregate("sum", "ViewCount", new Query());
+
+            var sqlServer = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT [Title], SUM([ViewCount]) FROM [Posts]", sqlServer.ToString());
+        }
+
+        [Fact]
+        public void BasicSelectAggregateWithAlias()
+        {
+            var q = new Query("Posts").Select("Title")
+                .SelectAggregate("sum", "ViewCount as TotalViews");
+
+            var sqlServer = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT [Title], SUM([ViewCount]) AS [TotalViews] FROM [Posts]", sqlServer.ToString());
+        }
+
+        [Fact]
+        public void SelectWithFilter()
+        {
+            var q = new Query("Posts").Select("Title")
+                .SelectAggregate("sum", "ViewCount as Published_Jan", q => q.Where("Published_Month", "Jan"))
+                .SelectAggregate("sum", "ViewCount as Published_Feb", q => q.Where("Published_Month", "Feb"));
+
+            var pgSql = Compilers.CompileFor(EngineCodes.PostgreSql, q);
+            Assert.Equal("SELECT \"Title\", SUM(\"ViewCount\") FILTER (WHERE \"Published_Month\" = 'Jan') AS \"Published_Jan\", SUM(\"ViewCount\") FILTER (WHERE \"Published_Month\" = 'Feb') AS \"Published_Feb\" FROM \"Posts\"", pgSql.ToString());
+
+            var sqlServer = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT [Title], SUM(CASE WHEN [Published_Month] = 'Jan' THEN [ViewCount] END) AS [Published_Jan], SUM(CASE WHEN [Published_Month] = 'Feb' THEN [ViewCount] END) AS [Published_Feb] FROM [Posts]", sqlServer.ToString());
+        }
+
+        [Fact]
+        public void SelectWithExists()
+        {
+            var q = new Query("Posts").WhereExists(
+                new Query("Comments").WhereColumns("Comments.PostId", "=", "Posts.Id")
+            );
+
+            var sqlServer = Compilers.CompileFor(EngineCodes.SqlServer, q);
+            Assert.Equal("SELECT * FROM [Posts] WHERE EXISTS (SELECT 1 FROM [Comments] WHERE [Comments].[PostId] = [Posts].[Id])", sqlServer.ToString());
+        }
+
+        [Fact]
+        public void SelectWithExists_OmitSelectIsFalse()
+        {
+            var q = new Query("Posts").WhereExists(
+                new Query("Comments").Select("Id").WhereColumns("Comments.PostId", "=", "Posts.Id")
+            );
+
+
+            var compiler = new SqlServerCompiler
+            {
+                OmitSelectInsideExists = false,
+            };
+
+            var sqlServer = compiler.Compile(q).ToString();
+            Assert.Equal("SELECT * FROM [Posts] WHERE EXISTS (SELECT [Id] FROM [Comments] WHERE [Comments].[PostId] = [Posts].[Id])", sqlServer.ToString());
+        }
+
     }
 }
