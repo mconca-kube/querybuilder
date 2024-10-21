@@ -12,7 +12,7 @@ namespace SqlKata.Compilers
             OpeningIdentifier = "\"";
             ClosingIdentifier = "\"";
             LastId = "select last_insert_rowid() as id";
-            SupportsFilterClause { get; set; } = true;
+            SupportsFilterClause = true;
         }
 
         public override string EngineCode { get; } = EngineCodes.Sqlite;

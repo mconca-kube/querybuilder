@@ -27,7 +27,7 @@ namespace SqlKata.Compilers
 
         protected override SqlResult CompileSelectQuery(Query query)
         {
-            var ctx = new SqlResult
+            var ctx = new SqlResult(parameterPlaceholder, EscapeCharacter)
             {
                 Query = query.Clone(),
             };
