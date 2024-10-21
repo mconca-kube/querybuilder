@@ -24,9 +24,9 @@
     <!-- SourceLink settings -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <Version>2.4.0.2</Version>
-    <AssemblyVersion>2.3.0.123</AssemblyVersion>
-    <FileVersion>2.3.0.123</FileVersion>
+    <Version>2.4.0.3</Version>
+    <AssemblyVersion></AssemblyVersion>
+    <FileVersion></FileVersion>
 
     <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
