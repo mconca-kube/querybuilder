@@ -39,6 +39,12 @@ namespace SqlKata.Compilers
             return parameterPlaceholder;
         }
 
+        // MC 2024/10/21 Aggiunta per poter lanciare query free
+        public string GetEscapeCharacter()
+        {
+            return EscapeCharacter;
+        }
+
         // MC 2022/11/29 Aggiunta per poter lanciare query free
         public Dictionary<string, object> GetNamedBindings(object[] bindings)
         {
